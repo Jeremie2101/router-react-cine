@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import ListeFilms from './Filter';
+import { Route, Routes } from 'react-router-dom';
+import FilmDetails from './FilmDetails'; // Utilisation d'un chemin relatif
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        {/*pour la navigation entre chaque page du site*/}
+        <Routes>
+          {/*naviger à l'accueil de la page*/}
+          <Route path="/" element={<ListeFilms />} />
+          {/* naviger aux détails du film */}
+          <Route path='/descr/:id' element={<FilmDetails />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
